@@ -19,7 +19,19 @@ export class ProductRepositoryPrisma implements ProductGateway {
 
     await this.prismaClient.product.create({ data });
   }
-  list(): Promise<Product[]> {
-    throw new Error("Method not implemented.");
+
+  public async list(): Promise<Product[]> {
+    const products = await this.prismaClient.product.findMany();
+
+    const productLit = products.map((p) =>
+      Product.with({
+        id: p.id,
+        name: p.name,
+        price: p.price,
+        quantity: p.quantity,
+      })
+    );
+
+    return productLit;
   }
 }
