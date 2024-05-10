@@ -26,10 +26,12 @@ export class CreateProductUseCase
 
     await this.productGateway.save(aProduct);
 
-    const output: CreateProductOutputDto = {
-      id: aProduct.id,
-    };
+    return this.presentOutput(aProduct);
+  }
 
-    return output;
+  private presentOutput(product: Product): CreateProductOutputDto {
+    return {
+      id: product.id,
+    };
   }
 }
