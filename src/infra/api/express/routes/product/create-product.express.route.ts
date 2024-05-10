@@ -37,7 +37,7 @@ export class CreateProductRoute implements Route {
     };
   }
 
-  public getPath(): String {
+  public getPath(): string {
     return this.path;
   }
 
