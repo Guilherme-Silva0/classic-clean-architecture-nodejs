@@ -9,6 +9,6 @@ export const HttpMethod = {
 
 export interface Route {
   getHandler(): (req: Request, res: Response) => Promise<void>;
-  getPath(): String;
+  getPath(): string;
   getMethod(): HttpMethod;
 }
