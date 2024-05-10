@@ -10,7 +10,7 @@ export class Product {
 
   public static create(name: string, price: number) {
     return new this({
-      id: crypto.randomUUID.toString(),
+      id: crypto.randomUUID().toString(),
       name,
       price,
       quantity: 0,
